@@ -1,14 +1,7 @@
 const ghPages = require('gh-pages');
 
-ghPages.publish(
-  'build',
-  {
-    add: true,
-    async beforeAdd(git) {
-      return git.add('./CNAME');
-    },
-  },
-  (error) => {
+ghPages.publish('build', {}, (error) => {
+  if (error) {
     console.error(error);
-  },
-);
+  }
+});

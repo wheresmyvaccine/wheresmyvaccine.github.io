@@ -9,7 +9,7 @@
   "main": "index.html",
   "scripts": {
     "start": "npm run dev",
-    "build": "preact build",
+    "build": "preact build && cp ./CNAME build/",
     "serve": "bundle exec jekyll serve -s build",
     "deploy": "node ./scripts/deploy.js",
     "dev": "preact watch",
@@ -18,7 +18,7 @@
   },
   "eslintConfig": {
     "extends": "preact",
-    "ignorePatterns": [ "build/" ]
+    "ignorePatterns": [ "build/", "_site" ]
   },
   "devDependencies": {
     "enzyme": "^3.10.0",
