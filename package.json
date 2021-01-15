@@ -13,7 +13,7 @@
     "serve": "bundle exec jekyll serve -s build",
     "deploy": "node ./scripts/deploy.js",
     "dev": "preact watch",
-    "lint": "eslint src",
+    "lint": "eslint ./",
     "test": "jest"
   },
   "eslintConfig": {
