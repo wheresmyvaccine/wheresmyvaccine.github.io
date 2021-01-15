@@ -4,9 +4,9 @@ on:
     branches:
       - main
       - develop
-    paths:
-      - 'src/**'
-      - 'tests/**'
+    # paths:
+    #   - 'src/**'
+    #   - 'tests/**'
   pull_request: 
     types: [labeled]
     paths:
@@ -33,10 +33,10 @@ jobs:
         with:
           useLockFile: false
 
-      - name: Lint and Unit Test
-        run: |
-          npm run lint
-          npm run test
+      # - name: Lint and Unit Test
+      #   run: |
+      #     npm run lint
+      #     npm run test
     
       - name: Build
         run: |

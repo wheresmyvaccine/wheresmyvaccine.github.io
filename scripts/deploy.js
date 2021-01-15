@@ -4,7 +4,7 @@ ghPages.publish(
   'build',
   {
     repo: `https://${process.env.GITHUB_TOKEN}@github.com/wheresmyvaccine/wheresmyvaccine.github.io.git`,
-    silent: true,
+    // silent: true,
   },
   (error) => {
     if (error) {
