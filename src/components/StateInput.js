@@ -4,6 +4,7 @@ const StateInput = () => {
   return (
     <div>
       <h1>What is your state?</h1>
+
       <ul>
         {stateNames.map((name) => {
           <li>{name}</li>;
