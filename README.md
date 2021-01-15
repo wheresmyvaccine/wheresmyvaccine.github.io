@@ -1,3 +1,5 @@
+![build](https://github.com/wheresmyvaccine/wheresmyvaccine.github.io/workflows/build/badge.svg)
+
 # Where's My Vaccine?
 
 ## CLI Commands
