@@ -1,4 +1,4 @@
-import { Fragment } from 'preact';
+import { h, Fragment } from 'preact';
 import ReactSelect from 'react-select';
 import { stateNames } from '../data';
 
