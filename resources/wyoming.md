@@ -1,1 +1,1 @@
-# wyoming
+# Wyoming

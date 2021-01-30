@@ -1,1 +1,1 @@
-# south_carolina
+# South Carolina
