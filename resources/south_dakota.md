@@ -1,1 +1,1 @@
-# south_dakota
+# South Dakota
