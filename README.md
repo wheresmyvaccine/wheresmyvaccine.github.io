@@ -2,9 +2,17 @@
 
 # Where's My Vaccine?
 
+## Editing State Resources
+
+To edit state resources, go to [resources/README.md](resources/README.md) and choose the state you want to edit.
+
+## Editing State Data
+
+To edit state data, go to [src/data/states/README.md](src/data/states/README.md) and choose the state you want to edit.
+
 ## CLI Commands
 
-``` bash
+```bash
 # install dependencies
 npm install
 

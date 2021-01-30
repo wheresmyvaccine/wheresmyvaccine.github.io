@@ -1,1 +1,1 @@
-# new_mexico
+# New Mexico

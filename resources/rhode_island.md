@@ -1,1 +1,1 @@
-# rhode_island
+# Rhode Island

@@ -1,1 +1,1 @@
-# michigan
+# Michigan
