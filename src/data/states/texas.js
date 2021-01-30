@@ -35,6 +35,7 @@ export default {
   },
   'healthConditions': {
     '1+ chronic illness': '',
+    'none': '',
   },
 
   'combinations': [

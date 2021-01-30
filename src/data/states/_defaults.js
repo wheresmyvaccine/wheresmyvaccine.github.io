@@ -1,17 +1,25 @@
 // Generics are probably the only ones needed for defaults.
 // The rest are for completeness.
 export default {
-  'genericLivingSettings': ['Long Term Care Facility'],
+  'genericLivingSettings': [
+    'Long Term Care Facility',
+  ],
   'specificLivingSettings': {},
   'livingSettings': {},
 
-  'genericWorkSettings': ['Education', 'Healthcare', 'Public Transit'],
+  'genericWorkSettings': [
+    'Education', 
+    'Healthcare', 
+    'Public Transit',
+  ],
   'specificWorkSettings': {},
   'workSettings': {},
 
   'age': {},
 
-  'genericHealthConditions': ['Immunocompromised'],
+  'genericHealthConditions': [
+    'Immunocompromised',
+  ],
   'specificHealthConditions': {},
   'healthConditions': {},
 
