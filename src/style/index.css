@@ -35,6 +35,49 @@ body {
   font-size: 130%;
 }
 
+.page-enter-active > .page-inner,
+.page-exit-active > .page-inner {
+  transition: opacity 500ms, transform 500ms;
+}
+
+/* enter from the right 100 to 0 */
+.container.next-exit-left-enter-right .page-enter > .page-inner {
+  opacity: 0;
+  transform: translateX(100%);
+}
+.container.next-exit-left-enter-right .page-enter-active > .page-inner {
+  opacity: 1;
+  transform: translateX(0%);
+}
+/* exit to the left 0 to -100 */
+.container.next-exit-left-enter-right .page-exit > .page-inner {
+  opacity: 1;
+  transform: translateX(0%);
+}
+.container.next-exit-left-enter-right .page-exit-active > .page-inner {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+/* enter from the left -100 to 0 */
+.container.previous-exit-right-enter-left .page-enter > .page-inner {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.container.previous-exit-right-enter-left .page-enter-active > .page-inner {
+  opacity: 1;
+  transform: translateX(0%);
+}
+/* exit to the right 0 to 100 */
+.container.previous-exit-right-enter-left .page-exit > .page-inner {
+  opacity: 1;
+  transform: translateX(0%);
+}
+.container.previous-exit-right-enter-left .page-exit-active > .page-inner {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
 /* Font for Logo: Montserrat */
 /*    Top Size: semibold 18px */
 /* Bottom Size: semibold 24px */

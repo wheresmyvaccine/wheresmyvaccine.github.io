@@ -1,6 +1,6 @@
 import {h, Fragment} from 'preact';
 import ReactSelect from 'react-select';
-import {stateNames} from '../data';
+import {stateData} from '../data';
 
 const styles = {
   control: (styles) => ({...styles, width: 320, border: '4px solid #282525', borderRadius: 7}),
@@ -10,27 +10,33 @@ const styles = {
   singleValue: (styles) => styles,
 };
 
-const StateInput = ({setStateName}) => {
-  const setStateNameWrapper = ({value}) => {
-    setStateName(value);
+const CriteriaInput = ({stateName, selectorType, setData}) => {
+  const {selectors} = stateData[stateName];
+  const selectorData = selectors[selectorType];
+
+  const setDataWrapper = (input) => {
+    console.log(input);
+    setData();
   };
 
   return (
     <Fragment>
-      <h1>What state do you live in?</h1>
+      <div>
+        CriteriaInput {stateName} {selectorType}
+      </div>
 
       <ReactSelect
-        className='StateNameSelect'
+        className={`${selectorType}Select`}
         classNamePrefix='select'
-        name='stateName'
-        options={stateNames}
+        name={selectorType}
+        options={selectorData}
         isClearable={true}
         isSearchable={true}
         styles={styles}
-        onChange={setStateNameWrapper}
+        onChange={setDataWrapper}
       />
     </Fragment>
   );
 };
 
-export default StateInput;
+export default CriteriaInput;
