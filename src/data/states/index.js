@@ -1,51 +1,70 @@
-export { default as alabama } from './alabama.js';
-export { default as alaska } from './alaska.js';
-export { default as arizona } from './arizona.js';
-export { default as arkansas } from './arkansas.js';
-export { default as california } from './california.js';
-export { default as colorado } from './colorado.js';
-export { default as connecticut } from './connecticut.js';
-export { default as delaware } from './delaware.js';
-export { default as district_of_columbia } from './district_of_columbia.js';
-export { default as florida } from './florida.js';
-export { default as georgia } from './georgia.js';
-export { default as hawaii } from './hawaii.js';
-export { default as idaho } from './idaho.js';
-export { default as illinois } from './illinois.js';
-export { default as indiana } from './indiana.js';
-export { default as iowa } from './iowa.js';
-export { default as kansas } from './kansas.js';
-export { default as kentucky } from './kentucky.js';
-export { default as louisiana } from './louisiana.js';
-export { default as maine } from './maine.js';
-export { default as maryland } from './maryland.js';
-export { default as massachusetts } from './massachusetts.js';
-export { default as michigan } from './michigan.js';
-export { default as minnesota } from './minnesota.js';
-export { default as mississippi } from './mississippi.js';
-export { default as missouri } from './missouri.js';
-export { default as montana } from './montana.js';
-export { default as nebraska } from './nebraska.js';
-export { default as nevada } from './nevada.js';
-export { default as new_hampshire } from './new_hampshire.js';
-export { default as new_jersey } from './new_jersey.js';
-export { default as new_mexico } from './new_mexico.js';
-export { default as new_york } from './new_york.js';
-export { default as north_carolina } from './north_carolina.js';
-export { default as north_dakota } from './north_dakota.js';
-export { default as ohio } from './ohio.js';
-export { default as oklahoma } from './oklahoma.js';
-export { default as oregon } from './oregon.js';
-export { default as pennsylvania } from './pennsylvania.js';
-export { default as rhode_island } from './rhode_island.js';
-export { default as south_carolina } from './south_carolina.js';
-export { default as south_dakota } from './south_dakota.js';
-export { default as tennessee } from './tennessee.js';
-export { default as texas } from './texas.js';
-export { default as utah } from './utah.js';
-export { default as vermont } from './vermont.js';
-export { default as virginia } from './virginia.js';
-export { default as washington } from './washington.js';
-export { default as west_virginia } from './west_virginia.js';
-export { default as wisconsin } from './wisconsin.js';
-export { default as wyoming } from './wyoming.js';
+// For an example and instructions on editing, go to the below URL
+// https://github.com/wheresmyvaccine/wheresmyvaccine.github.io/blob/main/src/data/states/README.md
+
+export default {
+  'livingSettings': {
+    'genericOptions': [
+
+    ],
+    'genericPhaseMap': {
+
+    },
+    'genericSpecificMap': {
+
+    },
+    'specificOptionsPhaseMap': {
+
+    },
+  },
+
+  'workSettings': {
+    'genericOptions': [
+
+    ],
+    'genericPhaseMap': {
+
+    },
+    'genericSpecificMap': {
+
+    },
+    'specificOptionsPhaseMap': {
+
+    },
+  },
+
+  'healthConditions': {
+    'genericOptions': [
+
+    ],
+    'genericPhaseMap': {
+
+    },
+    'genericSpecificMap': {
+
+    },
+    'specificOptionsPhaseMap': {
+
+    },
+  },
+
+  'agePhaseMap': {
+
+  },
+
+  'combinations': [
+
+  ],
+
+  'phases': {
+    '1a': {
+      'startDate': '',
+    },
+    '1b': {
+      'startDate': '',
+    },
+  },
+
+  'resources': {
+
+  },
+};

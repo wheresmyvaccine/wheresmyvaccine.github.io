@@ -4,40 +4,55 @@
 
 ```
 export default {
-  'genericLivingSettings': [
-
-  ],
-  'specificLivingSettings': {
-
-  },
   'livingSettings': {
-    'Long Term Care': '1a',
+    'genericOptions': [
+
+    ],
+    'genericPhaseMap': {
+      'Long Term Care': '1a',
+    },
+    'genericSpecificMap': {
+
+    },
+    'specificOptionsPhaseMap': {
+
+    },
   },
 
-  'genericWorkSettings': [
-
-  ],
-  'specificWorkSettings': {
-
-  },
   'workSettings': {
-    'Healthcare': '1a',
+    'genericOptions': [
+
+    ],
+    'genericPhaseMap': {
+      'Healthcare': '1a',
+    },
+    'genericSpecificMap': {
+
+    },
+    'specificOptionsPhaseMap': {
+
+    },
   },
 
-  'age': {
-
-  },
-
-  'genericHealthConditions': [
-
-  ],
-  'specificHealthConditions': {
-
-  },
   'healthConditions': {
-    '2+ high risk medical conditions': '1b.6',
-    '1+ high risk medical conditions': '',
-    'none': '',
+    'genericOptions': [
+
+    ],
+    'genericPhaseMap': {
+
+    },
+    'genericSpecificMap': {
+
+    },
+    'specificOptionsPhaseMap': {
+      '2+ high risk medical conditions': '1b.6',
+      '1+ high risk medical conditions': '',
+      'none': '',
+    },
+  },
+
+  'agePhaseMap': {
+
   },
 
   'combinations': [

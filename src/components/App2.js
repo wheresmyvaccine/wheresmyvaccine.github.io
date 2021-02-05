@@ -36,9 +36,7 @@ const App = () => {
   const [ workSettings, setWorkSettings ] = useState('');
   const [ healthConditions, setHealthConditions ] = useState('');
 
-  const data = {
-    stateName,
-    age,
+  const dataMap = {
     genericLivingSettings,
     genericWorkSettings,
     genericHealthConditions,
@@ -47,7 +45,53 @@ const App = () => {
     healthConditions,
   };
 
-  console.log(data);
+  const pagesMap = {
+    state: {
+      PageComponent: StateInput,
+      data: stateName,
+      setData: setStateName,
+    },
+    age: {
+      PageComponent: AgeInput,
+      data: age,
+      setData: setAge,
+    },
+    genericLivingSettings: {
+      PageComponent: GenericLivingSettingsInput,
+      data: genericLivingSettings,
+      setData: setGenericLivingSettings,
+    },
+    genericWorkSettings: {
+      PageComponent: GenericWorkSettingsInput,
+      data: genericWorkSettings,
+      setData: setGenericWorkSettings,
+    },
+    genericHealthConditions: {
+      PageComponent: GenericHealthConditionsInput,
+      data: genericHealthConditions,
+      setData: setGenericHealthConditions,
+    },
+    livingSettings: {
+      PageComponent: LivingSettingsInput,
+      data: livingSettings,
+      setData: setLivingSettings,
+    },
+    workSettings: {
+      PageComponent: WorkSettingsInput,
+      data: workSettings,
+      setData: setWorkSettings,
+    },
+    healthConditions: {
+      PageComponent: HealthConditionsInput,
+      data: healthConditions,
+      setData: setHealthConditions,
+    },
+  };
+
+  const { PageComponent, data, setData } = pagesMap[inputsMap[inputIndex]];
+  // const PagePageComponent = selectedPage.PageComponent;
+
+  console.log(dataMap);
 
   const nextIndex = () => {
     if (inputIndex < inputsMap.length - 1) {
@@ -67,43 +111,12 @@ const App = () => {
     <div id='app'>
       <Header />
       <h3>{inputIndex}</h3>
-      <div className={`container ${inputDirection}`}>
+      <div class={`container ${inputDirection}`}>
         <SwitchTransition mode='out-in'>
           <CSSTransition key={inputIndex} classNames='page' timeout={300}>
             <div class='page-outer'>
               <div class='page-inner'>
-                {inputsMap[inputIndex] === 'state' && <StateInput stateName={stateName} setStateName={setStateName} />}
-                {inputsMap[inputIndex] === 'age' && <AgeInput age={age} setAge={setAge} />}
-                {inputsMap[inputIndex] === 'genericLivingSettings' && (
-                  <GenericLivingSettingsInput
-                    stateName={stateName}
-                    data={genericLivingSettings}
-                    setData={setGenericLivingSettings}
-                  />
-                )}
-                {inputsMap[inputIndex] === 'genericWorkSettings' && (
-                  <GenericWorkSettingsInput
-                    stateName={stateName}
-                    data={genericWorkSettings}
-                    setData={setGenericWorkSettings}
-                  />
-                )}
-                {inputsMap[inputIndex] === 'genericHealthConditions' && (
-                  <GenericHealthConditionsInput
-                    stateName={stateName}
-                    data={genericHealthConditions}
-                    setData={setGenericHealthConditions}
-                  />
-                )}
-                {inputsMap[inputIndex] === 'livingSettings' && (
-                  <LivingSettingsInput stateName={stateName} data={livingSettings} setData={setLivingSettings} />
-                )}
-                {inputsMap[inputIndex] === 'workSettings' && (
-                  <WorkSettingsInput stateName={stateName} data={workSettings} setData={setWorkSettings} />
-                )}
-                {inputsMap[inputIndex] === 'healthConditions' && (
-                  <HealthConditionsInput stateName={stateName} data={healthConditions} setData={setHealthConditions} />
-                )}
+                <PageComponent stateName={stateName} data={data} setData={setData} />
               </div>
             </div>
           </CSSTransition>

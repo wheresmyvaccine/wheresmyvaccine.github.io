@@ -1,41 +1,60 @@
+// For an example and instructions on editing, go to the below URL
+// https://github.com/wheresmyvaccine/wheresmyvaccine.github.io/blob/main/src/data/states/README.md
+
 export default {
-  'genericLivingSettings': [
-
-  ],
-  'specificLivingSettings': {
-
-  },
   'livingSettings': {
+    'genericOptions': [
 
+    ],
+    'genericPhaseMap': {
+
+    },
+    'genericSpecificMap': {
+
+    },
+    'specificOptionsPhaseMap': {
+
+    },
   },
 
-  'genericWorkSettings': [
-
-  ],
-  'specificWorkSettings': {
-
-  },
   'workSettings': {
+    'genericOptions': [
 
+    ],
+    'genericPhaseMap': {
+
+    },
+    'genericSpecificMap': {
+
+    },
+    'specificOptionsPhaseMap': {
+
+    },
   },
 
-  'age': {
-
-  },
-
-  'genericHealthConditions': [
-
-  ],
-  'specificHealthConditions': {
-
-  },
   'healthConditions': {
+    'genericOptions': [
+
+    ],
+    'genericPhaseMap': {
+
+    },
+    'genericSpecificMap': {
+
+    },
+    'specificOptionsPhaseMap': {
+
+    },
+  },
+
+  'agePhaseMap': {
 
   },
 
   'combinations': [
 
   ],
+
   'phases': {
     '1a': {
       'startDate': '2021-01-15',
@@ -44,6 +63,7 @@ export default {
       'startDate': '2021-01-15',
     },
   },
+
   'resources': {
     'COVID-19 Vaccination Program': 'https://coronavirus.ohio.gov/wps/portal/gov/covid-19/covid-19-vaccination-program',
   },

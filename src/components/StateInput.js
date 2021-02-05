@@ -1,18 +1,18 @@
-import {h, Fragment} from 'preact';
+import { h, Fragment } from 'preact';
 import ReactSelect from 'react-select';
-import {stateNames} from '../data';
+import { stateNames } from '../data';
 
 const styles = {
-  control: (styles) => ({...styles, width: 320, border: '4px solid #282525', borderRadius: 7}),
-  option: (styles) => ({...styles, color: 'black'}),
+  control: (styles) => ({ ...styles, width: 320, border: '4px solid #282525', borderRadius: 7 }),
+  option: (styles) => ({ ...styles, color: 'black' }),
   input: (styles) => styles,
   placeholder: (styles) => styles,
   singleValue: (styles) => styles,
 };
 
-const StateInput = ({setStateName}) => {
-  const setStateNameWrapper = ({value}) => {
-    setStateName(value);
+const StateInput = ({ setData }) => {
+  const setStateNameWrapper = ({ value }) => {
+    setData(value);
   };
 
   return (
