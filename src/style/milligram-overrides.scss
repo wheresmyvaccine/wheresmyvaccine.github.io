@@ -1,7 +1,9 @@
 // https://fonts.google.com/specimen/Montserrat?preview.text_type=custom&sidebar.open=true&selection.family=Montserrat:wght@400;600
+// https://fonts.google.com/specimen/Lato?preview.text_type=custom&sidebar.open=true&selection.family=Lato
 
 body {
-  font-family: Montserrat, sans-serif;
+  background-color: hsl(0deg, 0%, 95%);
+  font-family: Lato, sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -11,7 +13,32 @@ body {
   max-width: 43rem;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Montserrat, sans-serif;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
 button {
-  background-color: hsl(215deg, 85%, 60%);
   border-color: hsl(215deg, 85%, 60%);
+  border-radius: 7px;
+  background-color: hsl(215deg, 85%, 60%);
+  font-family: Lato, sans-serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  height: 5.7rem;
+  text-transform: capitalize;
+
+  &:focus,
+  &:hover {
+    border-color: hsl(225deg, 85%, 60%);
+    background-color: hsl(225deg, 85%, 60%);
+  }
 }
