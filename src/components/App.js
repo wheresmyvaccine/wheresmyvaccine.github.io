@@ -1,7 +1,7 @@
-import {h} from 'preact';
-import {useState, useEffect} from 'preact/hooks';
-import {SwitchTransition, CSSTransition} from 'react-transition-group';
-import {Column, Row} from './atoms';
+import { h } from 'preact';
+import { useState, useEffect } from 'preact/hooks';
+import { SwitchTransition, CSSTransition } from 'react-transition-group';
+import { Column, Row } from './atoms';
 import Header from './Header';
 import StateInput from './StateInput';
 import AgeInput from './AgeInput';
@@ -26,23 +26,26 @@ const inputsMap = [
 ];
 
 const App = () => {
-  const [darkMode, setDarkMode] = useState(false);
-  const [inputDirection, setInputDirection] = useState('next-exit-left-enter-right');
-  const [inputIndex, setInputIndex] = useState(1);
+  const [ darkMode, setDarkMode ] = useState(false);
+  const [ inputDirection, setInputDirection ] = useState('next-exit-left-enter-right');
+  const [ inputIndex, setInputIndex ] = useState(1);
 
-  const [stateName, setStateName] = useState({});
-  const [age, setAge] = useState(0);
-  const [genericLivingSettings, setGenericLivingSettings] = useState({});
-  const [genericWorkSettings, setGenericWorkSettings] = useState({});
-  const [genericHealthConditions, setGenericHealthConditions] = useState({});
-  const [specificLivingSettings, setSpecificLivingSettings] = useState({});
-  const [specificWorkSettings, setSpecificWorkSettings] = useState({});
-  const [specificHealthConditions, setSpecificHealthConditions] = useState({});
+  const [ stateName, setStateName ] = useState({});
+  const [ age, setAge ] = useState(0);
+  const [ genericLivingSettings, setGenericLivingSettings ] = useState({});
+  const [ genericWorkSettings, setGenericWorkSettings ] = useState({});
+  const [ genericHealthConditions, setGenericHealthConditions ] = useState({});
+  const [ specificLivingSettings, setSpecificLivingSettings ] = useState({});
+  const [ specificWorkSettings, setSpecificWorkSettings ] = useState({});
+  const [ specificHealthConditions, setSpecificHealthConditions ] = useState({});
 
-  useEffect(() => {
-    if (darkMode) document.body.classList.add('dark');
-    else document.body.classList.remove('dark');
-  }, [darkMode]);
+  useEffect(
+    () => {
+      if (darkMode) document.body.classList.add('dark');
+      else document.body.classList.remove('dark');
+    },
+    [ darkMode ],
+  );
 
   const data = {
     stateName,
@@ -50,9 +53,9 @@ const App = () => {
     genericLivingSettings,
     genericWorkSettings,
     genericHealthConditions,
-    specificLivingSettings,
-    specificWorkSettings,
-    specificHealthConditions,
+    // specificLivingSettings,
+    // specificWorkSettings,
+    // specificHealthConditions,
   };
 
   console.log(data);
@@ -82,9 +85,7 @@ const App = () => {
           <CSSTransition key={inputIndex} classNames='page' timeout={300}>
             <div class='page-outer'>
               <div class='page-inner'>
-                {inputsMap[inputIndex] === 'state' && (
-                  <StateInput stateName={stateName} setData={setStateName} />
-                )}
+                {inputsMap[inputIndex] === 'state' && <StateInput stateName={stateName} setData={setStateName} />}
                 {inputsMap[inputIndex] === 'age' && <AgeInput age={age} setData={setAge} />}
                 {inputsMap[inputIndex] === 'genericLivingSettings' && (
                   <GenericLivingSettingsInput
@@ -134,9 +135,7 @@ const App = () => {
         </SwitchTransition>
         <Row className='DirectionButtons'>
           <Column>{inputIndex > 0 && <button onClick={previousIndex}>Previous</button>}</Column>
-          <Column>
-            {inputIndex < inputsMap.length - 1 && <button onClick={nextIndex}>Next</button>}
-          </Column>
+          <Column>{inputIndex < inputsMap.length - 1 && <button onClick={nextIndex}>Next</button>}</Column>
         </Row>
       </div>
     </div>

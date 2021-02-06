@@ -1,4 +1,3 @@
-import 'milligram';
 import './style';
 
 import App from './components/App';

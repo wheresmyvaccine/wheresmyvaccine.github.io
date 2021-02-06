@@ -69,10 +69,10 @@ export default {
     'genericWorkSettings': 'Where do you work or volunteer?',
     'specificWorkSettings': '',
 
-    'genericLivingSettings': '',
+    'genericLivingSettings': 'Where do you live?',
     'specificLivingSettings': '',
 
-    'genericHealthConditions': '',
+    'genericHealthConditions': 'Do you have any health conditions that put you at a high risk for COVID-19 complications?',
     'specificHealthConditions': '',
   },
 
@@ -80,10 +80,10 @@ export default {
     'genericWorkSettings': 'Feel free to select multiple answers. If you’re not sure about an answer, we suggest selecting it anyway. We’ll provide more resources at the end to dig into if you’re eligible based on that answer.',
     'specificWorkSettings': '',
 
-    'genericLivingSettings': '',
+    'genericLivingSettings': 'Feel free to select multiple answers. If you’re not sure about an answer, we suggest selecting it anyway. We’ll provide more resources at the end to dig into if you’re eligible based on that answer.',
     'specificLivingSettings': '',
 
-    'genericHealthConditions': '',
+    'genericHealthConditions': 'We know “a high risk for COVID-19 complications” is vague. Basically, it means you have something that would make COVID-19 especially bad if you were to get it. If you’re not sure, select “Yes” and we’ll provide more resources at the end.',
     'specificHealthConditions': '',
   },
 
