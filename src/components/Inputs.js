@@ -12,14 +12,14 @@ export const GenericHealthConditionsInput = ({stateName, setData}) => (
   <CriteriaInput stateName={stateName} selectorType='genericHealthConditions' setData={setData} />
 );
 
-export const LivingSettingsInput = ({stateName, setData}) => (
-  <CriteriaInput stateName={stateName} selectorType='livingSettings' setData={setData} />
+export const SpecificLivingSettingsInput = ({stateName, setData}) => (
+  <CriteriaInput stateName={stateName} selectorType='specificLivingSettings' setData={setData} />
 );
 
-export const WorkSettingsInput = ({stateName, setData}) => (
-  <CriteriaInput stateName={stateName} selectorType='workSettings' setData={setData} />
+export const SpecificWorkSettingsInput = ({stateName, setData}) => (
+  <CriteriaInput stateName={stateName} selectorType='specificWorkSettings' setData={setData} />
 );
 
-export const HealthConditionsInput = ({stateName, setData}) => (
-  <CriteriaInput stateName={stateName} selectorType='healthConditions' setData={setData} />
+export const SpecificHealthConditionsInput = ({stateName, setData}) => (
+  <CriteriaInput stateName={stateName} selectorType='specificHealthConditions' setData={setData} />
 );

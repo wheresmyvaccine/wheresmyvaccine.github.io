@@ -1,41 +1,31 @@
-import {h, Fragment} from 'preact';
+import {h} from 'preact';
 import ReactSelect from 'react-select';
 import {stateData} from '../data';
 
-const styles = {
-  control: (styles) => ({...styles, width: 320, border: '4px solid #282525', borderRadius: 7}),
-  option: (styles) => ({...styles, color: 'black'}),
-  input: (styles) => styles,
-  placeholder: (styles) => styles,
-  singleValue: (styles) => styles,
-};
-
-const CriteriaInput = ({stateName, selectorType, setData}) => {
-  const {selectors} = stateData[stateName];
+const CriteriaInput = ({stateName, selectorType, data, setData}) => {
+  const {selectors, questions, questionDescriptions} = stateData[stateName.value];
   const selectorData = selectors[selectorType];
-
-  const setDataWrapper = (input) => {
-    console.log(input);
-    setData();
-  };
+  const setDataWrapper = (input) => setData(input);
 
   return (
-    <Fragment>
-      <div>
-        CriteriaInput {stateName} {selectorType}
-      </div>
+    <div className='CriteriaInput'>
+      <h6>
+        CriteriaInput {stateName.value} {selectorType}
+      </h6>
+      <h1>{questions[selectorType]}</h1>
+      <p>{questionDescriptions[selectorType]}</p>
 
       <ReactSelect
-        className={`${selectorType}Select`}
+        className={`${selectorType}Select ReactSelect`}
         classNamePrefix='select'
         name={selectorType}
         options={selectorData}
+        value={data}
         isClearable={true}
         isSearchable={true}
-        styles={styles}
         onChange={setDataWrapper}
       />
-    </Fragment>
+    </div>
   );
 };
 

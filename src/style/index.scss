@@ -1,37 +1,98 @@
-html,
+// https://fonts.google.com/specimen/Montserrat?preview.text_type=custom&sidebar.open=true&selection.family=Montserrat:wght@400;600
+
 body {
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  background: hsl(0deg, 0%, 50%);
-  font-family: 'Helvetica Neue', arial, sans-serif;
+  font-family: Montserrat, sans-serif;
   font-weight: 400;
-  color: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  &.dark {
+    background: hsl(0deg, 0%, 50%);
+    color: white;
+  }
 }
 
-* {
-  box-sizing: border-box;
+.container {
+  max-width: 43rem;
+}
+
+button {
+  background-color: hsl(215deg, 85%, 60%);
+  border-color: hsl(215deg, 85%, 60%);
 }
 
 #app {
   height: 100%;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 400px;
+.Header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1;
+
+  .bottom {
+    font-size: 133.33%;
+  }
 }
 
-.Header {
-  line-height: 1;
-  .bottom {
-    font-size: 130%;
+.StateNameSelect,
+.CriteriaInput {
+  h1 {
+    font-size: 3.6rem;
+    text-align: center;
   }
+
+  .ReactSelect {
+    width: 32rem;
+    margin: 0 auto;
+    font-size: 2rem;
+  }
+
+  .select__control {
+    border: 4px solid hsl(0deg, 4%, 15%);
+    border-radius: 7px;
+  }
+  .select__option {
+    color: black;
+  }
+  .select__placeholder {
+    color: hsl(0deg, 0%, 40%);
+  }
+  .select__indicator-separator {
+    background-color: hsl(0deg, 0%, 40%);
+  }
+  .select__indicator {
+    color: hsl(0deg, 0%, 40%);
+  }
+}
+
+.AgeInput {
+  h1 {
+    font-size: 3.6rem;
+    text-align: center;
+  }
+
+  pre {
+    display: inline;
+    border-width: 0;
+    background-color: inherit;
+  }
+
+  input {
+    display: block;
+    width: 16rem;
+    height: 6.5rem;
+    border: 4px solid hsl(0deg, 4%, 15%);
+    border-radius: 7px;
+    margin: auto;
+    background-color: white;
+    font-size: 3rem;
+    text-align: center;
+  }
+}
+
+.page-outer {
+  min-height: 50rem;
 }
 
 .page-enter-active .page-inner,
@@ -66,29 +127,29 @@ body {
 
 .container.previous-exit-right-enter-left {
   /* enter from the left -100 to 0 */
-  .page-enter {
-    .page-inner {
-      opacity: 0;
-      transform: translateX(-100%);
-    }
-    &-active .page-inner {
-      opacity: 1;
-      transform: translateX(0%);
-    }
+  .page-enter .page-inner {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  .page-enter-active .page-inner {
+    opacity: 1;
+    transform: translateX(0%);
   }
   /* exit to the right 0 to 100 */
-  .page-exit {
-    .page-inner {
-      opacity: 1;
-      transform: translateX(0%);
-    }
-    &-active .page-inner {
-      opacity: 0;
-      transform: translateX(100%);
-    }
+  .page-exit .page-inner {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  .page-exit-active .page-inner {
+    opacity: 0;
+    transform: translateX(100%);
   }
 }
 
-/* Font for Logo: Montserrat */
-/*    Top Size: semibold 18px */
-/* Bottom Size: semibold 24px */
+.DirectionButtons {
+  button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

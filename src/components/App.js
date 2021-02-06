@@ -1,6 +1,7 @@
-import { h } from 'preact';
-import { useState } from 'preact/hooks';
-import { SwitchTransition, CSSTransition } from 'react-transition-group';
+import {h} from 'preact';
+import {useState, useEffect} from 'preact/hooks';
+import {SwitchTransition, CSSTransition} from 'react-transition-group';
+import {Column, Row} from './atoms';
 import Header from './Header';
 import StateInput from './StateInput';
 import AgeInput from './AgeInput';
@@ -8,9 +9,9 @@ import {
   GenericLivingSettingsInput,
   GenericWorkSettingsInput,
   GenericHealthConditionsInput,
-  LivingSettingsInput,
-  WorkSettingsInput,
-  HealthConditionsInput,
+  SpecificLivingSettingsInput,
+  SpecificWorkSettingsInput,
+  SpecificHealthConditionsInput,
 } from './Inputs';
 
 const inputsMap = [
@@ -19,22 +20,29 @@ const inputsMap = [
   'genericLivingSettings',
   'genericWorkSettings',
   'genericHealthConditions',
-  'livingSettings',
-  'workSettings',
-  'healthConditions',
+  'specificLivingSettings',
+  'specificWorkSettings',
+  'specificHealthConditions',
 ];
 
 const App = () => {
-  const [ inputDirection, setInputDirection ] = useState('next-exit-left-enter-right');
-  const [ inputIndex, setInputIndex ] = useState(0);
-  const [ stateName, setStateName ] = useState('');
-  const [ age, setAge ] = useState(0);
-  const [ genericLivingSettings, setGenericLivingSettings ] = useState('');
-  const [ genericWorkSettings, setGenericWorkSettings ] = useState('');
-  const [ genericHealthConditions, setGenericHealthConditions ] = useState('');
-  const [ livingSettings, setLivingSettings ] = useState('');
-  const [ workSettings, setWorkSettings ] = useState('');
-  const [ healthConditions, setHealthConditions ] = useState('');
+  const [darkMode, setDarkMode] = useState(false);
+  const [inputDirection, setInputDirection] = useState('next-exit-left-enter-right');
+  const [inputIndex, setInputIndex] = useState(1);
+
+  const [stateName, setStateName] = useState({});
+  const [age, setAge] = useState(0);
+  const [genericLivingSettings, setGenericLivingSettings] = useState({});
+  const [genericWorkSettings, setGenericWorkSettings] = useState({});
+  const [genericHealthConditions, setGenericHealthConditions] = useState({});
+  const [specificLivingSettings, setSpecificLivingSettings] = useState({});
+  const [specificWorkSettings, setSpecificWorkSettings] = useState({});
+  const [specificHealthConditions, setSpecificHealthConditions] = useState({});
+
+  useEffect(() => {
+    if (darkMode) document.body.classList.add('dark');
+    else document.body.classList.remove('dark');
+  }, [darkMode]);
 
   const data = {
     stateName,
@@ -42,12 +50,14 @@ const App = () => {
     genericLivingSettings,
     genericWorkSettings,
     genericHealthConditions,
-    livingSettings,
-    workSettings,
-    healthConditions,
+    specificLivingSettings,
+    specificWorkSettings,
+    specificHealthConditions,
   };
 
   console.log(data);
+
+  const toggleDarkMode = () => setDarkMode(!darkMode);
 
   const nextIndex = () => {
     if (inputIndex < inputsMap.length - 1) {
@@ -66,14 +76,16 @@ const App = () => {
   return (
     <div id='app'>
       <Header />
-      <h3>{inputIndex}</h3>
+      <button onClick={toggleDarkMode}>Turn {darkMode ? 'Off' : 'On'} Dark Mode</button>
       <div className={`container ${inputDirection}`}>
         <SwitchTransition mode='out-in'>
           <CSSTransition key={inputIndex} classNames='page' timeout={300}>
             <div class='page-outer'>
               <div class='page-inner'>
-                {inputsMap[inputIndex] === 'state' && <StateInput stateName={stateName} setStateName={setStateName} />}
-                {inputsMap[inputIndex] === 'age' && <AgeInput age={age} setAge={setAge} />}
+                {inputsMap[inputIndex] === 'state' && (
+                  <StateInput stateName={stateName} setData={setStateName} />
+                )}
+                {inputsMap[inputIndex] === 'age' && <AgeInput age={age} setData={setAge} />}
                 {inputsMap[inputIndex] === 'genericLivingSettings' && (
                   <GenericLivingSettingsInput
                     stateName={stateName}
@@ -95,21 +107,37 @@ const App = () => {
                     setData={setGenericHealthConditions}
                   />
                 )}
-                {inputsMap[inputIndex] === 'livingSettings' && (
-                  <LivingSettingsInput stateName={stateName} data={livingSettings} setData={setLivingSettings} />
+                {inputsMap[inputIndex] === 'specificLivingSettings' && (
+                  <SpecificLivingSettingsInput
+                    stateName={stateName}
+                    data={specificLivingSettings}
+                    setData={setSpecificLivingSettings}
+                  />
                 )}
-                {inputsMap[inputIndex] === 'workSettings' && (
-                  <WorkSettingsInput stateName={stateName} data={workSettings} setData={setWorkSettings} />
+                {inputsMap[inputIndex] === 'specificWorkSettings' && (
+                  <SpecificWorkSettingsInput
+                    stateName={stateName}
+                    data={specificWorkSettings}
+                    setData={setSpecificWorkSettings}
+                  />
                 )}
-                {inputsMap[inputIndex] === 'healthConditions' && (
-                  <HealthConditionsInput stateName={stateName} data={healthConditions} setData={setHealthConditions} />
+                {inputsMap[inputIndex] === 'specificHealthConditions' && (
+                  <SpecificHealthConditionsInput
+                    stateName={stateName}
+                    data={specificHealthConditions}
+                    setData={setSpecificHealthConditions}
+                  />
                 )}
               </div>
             </div>
           </CSSTransition>
         </SwitchTransition>
-        {inputIndex > 0 && <button onClick={previousIndex}>Previous</button>}
-        {inputIndex < inputsMap.length - 1 && <button onClick={nextIndex}>Next</button>}
+        <Row className='DirectionButtons'>
+          <Column>{inputIndex > 0 && <button onClick={previousIndex}>Previous</button>}</Column>
+          <Column>
+            {inputIndex < inputsMap.length - 1 && <button onClick={nextIndex}>Next</button>}
+          </Column>
+        </Row>
       </div>
     </div>
   );
