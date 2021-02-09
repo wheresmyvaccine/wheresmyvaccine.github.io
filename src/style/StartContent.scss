@@ -1,0 +1,33 @@
+.StartContent {
+  h1 {
+    font-weight: 600;
+    font-size: 40px;
+  }
+
+  h2 {
+    color: var(--textBlue);
+    font-family: Lato;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: 0;
+  }
+
+  p.instructions {
+    color: var(--textBlack);
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  button {
+    width: 100%;
+    margin: 0 auto 2rem;
+  }
+
+  p.anonymous {
+    color: var(--textBlackLight);
+    font-size: 16px;
+    line-height: 1.1;
+    text-align: left;
+  }
+}

@@ -1,8 +1,13 @@
 @import 'milligram';
-@import './milligram-overrides';
-@import './page-transition';
+@import './_colors';
+@import './_milligram-overrides';
+@import './_page-transition';
+@import './Arrow';
+@import './ButtonsRow';
 @import './Header';
+@import './Logo';
 @import './Inputs';
+@import './StartContent.scss';
 
 body {
   padding: 0;
@@ -11,24 +16,5 @@ body {
   &.dark {
     background: hsl(0deg, 0%, 50%);
     color: white;
-  }
-}
-
-#app {
-  height: 100%;
-}
-
-.DirectionButtons {
-  justify-content: space-between;
-  width: 39rem;
-  padding: 0 1rem;
-  margin: 0;
-
-  .Previous {
-    margin-right: auto;
-  }
-
-  .Next {
-    margin-left: auto;
   }
 }

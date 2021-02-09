@@ -3,7 +3,12 @@
 export default {
   'livingSettings': {
     'genericOptions': [
-      'Long Term Care Facility',
+      'Long term care facility',
+      'Other congregate care facility (i.e. treatment centers, psychiatric hospitals)',
+      'Group living facility (i.e. homeless shelter, migrant camp)',
+      'Correctional facility',
+      'Multi-generational household',
+      'None of the above',
     ],
     'genericPhaseMap': {
 
@@ -18,9 +23,16 @@ export default {
 
   'workSettings': {
     'genericOptions': [
-      'Education', 
-      'Healthcare', 
-      'Public Transit',
+      'Healthcare',
+      'Mortuaries or funeral services',
+      'Emergency response or preparedness',
+      'Law enforcement or corrections',
+      'Education or child care',
+      'Homeless shelter or other congregate living setting',
+      'Manufacturing',
+      'Other frontline essential work (i.e. public transit, food services)',
+      'I’m a student',
+      'None of the above',
     ],
     'genericPhaseMap': {
 
@@ -35,7 +47,8 @@ export default {
 
   'healthConditions': {
     'genericOptions': [
-      'Immunocompromised',
+      'Yes',
+      'No'
     ],
     'genericPhaseMap': {
 
@@ -77,13 +90,13 @@ export default {
   },
 
   'questionDescriptions': {
-    'genericWorkSettings': 'Feel free to select multiple answers. If you’re not sure about an answer, we suggest selecting it anyway. We’ll provide more resources at the end to dig into if you’re eligible based on that answer.',
+    'genericWorkSettings': 'Select all answers that apply to you. If you\'re not sure about one, select it anyway!',
     'specificWorkSettings': '',
 
-    'genericLivingSettings': 'Feel free to select multiple answers. If you’re not sure about an answer, we suggest selecting it anyway. We’ll provide more resources at the end to dig into if you’re eligible based on that answer.',
+    'genericLivingSettings': 'Select all answers that apply to you. If you\'re not sure about one, select it anyway!',
     'specificLivingSettings': '',
 
-    'genericHealthConditions': 'We know “a high risk for COVID-19 complications” is vague. Basically, it means you have something that would make COVID-19 especially bad if you were to get it. If you’re not sure, select “Yes” and we’ll provide more resources at the end.',
+    'genericHealthConditions': 'If you have something that would make COVID-19 especially bad if you were to get it, select "Yes." If you’re not sure, select “Yes” anyway.',
     'specificHealthConditions': '',
   },
 

@@ -1,0 +1,16 @@
+.Arrow {
+  fill: currentColor;
+
+  &.left {
+    transform: scaleX(-1);
+  }
+  &.right {
+    transform: scaleX(1);
+  }
+  &.white {
+    color: white;
+  }
+  &.dark {
+    color: hsl(252deg, 0%, 32%);
+  }
+}

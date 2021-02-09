@@ -1,8 +1,9 @@
 import { h } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
-import { Row } from './atoms';
 import Header from './Header';
+import StartContent from './StartContent';
+import EndContent from './EndContent';
 import StateInput from './StateInput';
 import AgeInput from './AgeInput';
 import {
@@ -13,17 +14,22 @@ import {
   SpecificWorkSettingsInput,
   SpecificHealthConditionsInput,
 } from './Inputs';
+import ButtonsRow from './ButtonsRow';
 
 const inputsMap = [
+  'start',
   'state',
   'age',
   'genericLivingSettings',
   'genericWorkSettings',
   'genericHealthConditions',
-  'specificLivingSettings',
-  'specificWorkSettings',
-  'specificHealthConditions',
+  // 'specificLivingSettings',
+  // 'specificWorkSettings',
+  // 'specificHealthConditions',
+  'end',
 ];
+
+// Multi Select
 
 const App = () => {
   const [ darkMode, setDarkMode ] = useState(false);
@@ -39,12 +45,22 @@ const App = () => {
   const [ specificWorkSettings, setSpecificWorkSettings ] = useState({});
   const [ specificHealthConditions, setSpecificHealthConditions ] = useState({});
 
+  const inProgress = inputsMap[inputIndex] !== 'start';
+
   useEffect(
     () => {
       if (darkMode) document.body.classList.add('dark');
       else document.body.classList.remove('dark');
     },
     [ darkMode ],
+  );
+
+  useEffect(
+    () => {
+      if (inProgress) document.body.classList.add('inProgress');
+      else document.body.classList.remove('inProgress');
+    },
+    [ inProgress ],
   );
 
   const data = {
@@ -62,29 +78,18 @@ const App = () => {
 
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
-  const nextIndex = () => {
-    if (inputIndex < inputsMap.length - 1) {
-      setInputIndex(inputIndex + 1);
-      setInputDirection('next-exit-left-enter-right');
-    }
-  };
-
-  const previousIndex = () => {
-    if (inputIndex > 0) {
-      setInputIndex(inputIndex - 1);
-      setInputDirection('previous-exit-right-enter-left');
-    }
-  };
-
   return (
     <div id='app'>
       <Header />
-      <button onClick={toggleDarkMode}>Turn {darkMode ? 'Off' : 'On'} Dark Mode</button>
+      {false && <button onClick={toggleDarkMode}>Turn {darkMode ? 'Off' : 'On'} Dark Mode</button>}
       <div className={`container ${inputDirection}`}>
         <SwitchTransition mode='out-in'>
           <CSSTransition key={inputIndex} classNames='page' timeout={300}>
             <div class='page-outer'>
-              <div class='page-inner'>
+              <main class='page-inner'>
+                {inputsMap[inputIndex] === 'start' && (
+                  <StartContent setInputIndex={setInputIndex} setInputDirection={setInputDirection} />
+                )}
                 {inputsMap[inputIndex] === 'state' && <StateInput stateName={stateName} setData={setStateName} />}
                 {inputsMap[inputIndex] === 'age' && <AgeInput age={age} setData={setAge} />}
                 {inputsMap[inputIndex] === 'genericLivingSettings' && (
@@ -129,22 +134,21 @@ const App = () => {
                     setData={setSpecificHealthConditions}
                   />
                 )}
-              </div>
+                {inputsMap[inputIndex] === 'end' && (
+                  <EndContent setInputIndex={setInputIndex} setInputDirection={setInputDirection} />
+                )}
+              </main>
             </div>
           </CSSTransition>
         </SwitchTransition>
-        <Row className='DirectionButtons'>
-          {inputIndex > 0 && (
-            <button className='Previous' onClick={previousIndex}>
-              Previous
-            </button>
-          )}
-          {inputIndex < inputsMap.length - 1 && (
-            <button className='Next' onClick={nextIndex}>
-              Next
-            </button>
-          )}
-        </Row>
+        {inputsMap[inputIndex] !== 'start' && (
+          <ButtonsRow
+            inputIndex={inputIndex}
+            inputsMap={inputsMap}
+            setInputIndex={setInputIndex}
+            setInputDirection={setInputDirection}
+          />
+        )}
       </div>
     </div>
   );

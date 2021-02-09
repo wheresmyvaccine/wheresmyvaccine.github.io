@@ -1,8 +1,9 @@
-import {h} from 'preact';
+import { h } from 'preact';
 
-const Column = ({className: _class = '', size, children}) => {
+const Column = ({ className: _class = '', offset, size, children }) => {
   const sizeClass = size ? `column-${size}` : '';
-  return <div className={`column ${_class} ${sizeClass}`.trim()}>{children}</div>;
+  const offsetClass = offset ? `column-offset-${offset}` : '';
+  return <div className={`column ${_class} ${sizeClass} ${offsetClass}`.trim()}>{children}</div>;
 };
 
 export default Column;

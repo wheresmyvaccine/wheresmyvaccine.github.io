@@ -1,14 +1,22 @@
 .page-outer {
-  //
+  color: inherit;
 }
 
 .page-inner {
   min-height: 50rem;
   padding: 3rem 4rem 5rem;
   border-radius: 10px;
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
   background-color: white;
-  box-shadow: 2px 4px 10px hsla(0deg, 4%, 15%, 0.25);
+  box-shadow: 2px 4px 10px var(--boxShadowBlack);
+
+  .inProgress & {
+    box-shadow: 2px 4px 10px var(--boxShadowBlack);
+  }
+
+  body:not(.inProgress) & {
+    border: 1px solid black;
+  }
 }
 
 .page-enter-active .page-inner,

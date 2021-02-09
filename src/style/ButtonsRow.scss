@@ -1,0 +1,21 @@
+.ButtonsRow {
+  width: 39rem;
+  padding: 0;
+  margin: 0;
+
+  .Previous {
+    margin-right: auto;
+    background-color: white;
+    border-color: white;
+    color: var(--buttonTextBlack);
+  }
+
+  .Next {
+    margin-left: auto;
+
+    &.Finish {
+      background-color: var(--finishGreen);
+      border-color: var(--finishGreen);
+    }
+  }
+}

@@ -1,15 +1,9 @@
 .Header {
   padding: 2.5rem;
   background-color: white;
+  transition: 0.3s background-color;
 
-  h1 {
-    margin: 0;
-    font-size: 1.8rem;
-    font-weight: 600;
-    line-height: 1;
-
-    .bottom {
-      font-size: 133.33%;
-    }
+  .inProgress & {
+    background-color: var(--backgroundGrey);
   }
 }
