@@ -64,7 +64,7 @@ export default {
 
   'phases': {
     '1a': {
-      'startDate': '02-08-2021',
+      'startDate': '2021-02-08',
     },
     '1b': {
       'startDate': '',
