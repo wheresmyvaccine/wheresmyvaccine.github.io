@@ -19,10 +19,10 @@ export default {
 
   'workSettings': {
     'genericOptions': [
-      'Healthcare': '1a',
+
     ],
     'genericPhaseMap': {
-
+      'Healthcare': '1a',
     },
     'genericSpecificMap': {
 
