@@ -7,7 +7,9 @@ export default {
 
     ],
     'genericPhaseMap': {
-
+      'Long term care facility': '1a',
+      'Other congregate care facility (i.e. treatment centers, psychiatric hospitals)': '1a',
+      'Group living facility (i.e. homeless shelter, migrant camp)s': '1a',      
     },
     'genericSpecificMap': {
 
@@ -22,7 +24,14 @@ export default {
 
     ],
     'genericPhaseMap': {
-
+      'Healthcare': '1a',
+      'Mortuaries or funeral services': '1a',
+      'Emergency response or preparedness': '1a',      
+      'Law enforcement or corrections': '1a',
+      'Education or child care': '1a',
+      'Homeless shelter or other congregate living setting': '1a',
+      'Manufacturing': '1a',
+      'Other frontline essential work (i.e. public transit, food services, judiciary)': '1a',
     },
     'genericSpecificMap': {
 
@@ -48,7 +57,7 @@ export default {
   },
 
   'agePhaseMap': {
-
+    '65+': '1a',
   },
 
   'combinations': [
@@ -57,7 +66,7 @@ export default {
 
   'phases': {
     '1a': {
-      'startDate': '',
+      'startDate': '2021-02-08',
     },
     '1b': {
       'startDate': '',
