@@ -35,7 +35,7 @@ const inputsMap = [
 const App = () => {
   const [ darkMode, setDarkMode ] = useState(false);
   const [ inputDirection, setInputDirection ] = useState('next-exit-left-enter-right');
-  const [ inputIndex, setInputIndex ] = useState(3);
+  const [ inputIndex, setInputIndex ] = useState(0);
 
   const [ stateName, setStateName ] = useState({ label: 'Alabama (AL)', value: 'alabama' });
   // const [ stateName, setStateName ] = useState({});
