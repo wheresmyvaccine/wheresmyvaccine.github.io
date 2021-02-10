@@ -15,10 +15,11 @@ import {
   SpecificHealthConditionsInput,
 } from './Inputs';
 import ButtonsRow from './ButtonsRow';
+import { stateData } from '../data';
 
 const inputsMap = [
   'start',
-  'state',
+  'stateName',
   'age',
   'genericLivingSettings',
   'genericWorkSettings',
@@ -34,16 +35,17 @@ const inputsMap = [
 const App = () => {
   const [ darkMode, setDarkMode ] = useState(false);
   const [ inputDirection, setInputDirection ] = useState('next-exit-left-enter-right');
-  const [ inputIndex, setInputIndex ] = useState(0);
+  const [ inputIndex, setInputIndex ] = useState(3);
 
-  const [ stateName, setStateName ] = useState({});
+  const [ stateName, setStateName ] = useState({ label: 'Alabama (AL)', value: 'alabama' });
+  // const [ stateName, setStateName ] = useState({});
   const [ age, setAge ] = useState(0);
-  const [ genericLivingSettings, setGenericLivingSettings ] = useState({});
-  const [ genericWorkSettings, setGenericWorkSettings ] = useState({});
-  const [ genericHealthConditions, setGenericHealthConditions ] = useState({});
-  const [ specificLivingSettings, setSpecificLivingSettings ] = useState({});
-  const [ specificWorkSettings, setSpecificWorkSettings ] = useState({});
-  const [ specificHealthConditions, setSpecificHealthConditions ] = useState({});
+  const [ genericLivingSettings, setGenericLivingSettings ] = useState([]);
+  const [ genericWorkSettings, setGenericWorkSettings ] = useState([]);
+  const [ genericHealthConditions, setGenericHealthConditions ] = useState([]);
+  const [ specificLivingSettings, setSpecificLivingSettings ] = useState([]);
+  const [ specificWorkSettings, setSpecificWorkSettings ] = useState([]);
+  const [ specificHealthConditions, setSpecificHealthConditions ] = useState([]);
 
   const inProgress = inputsMap[inputIndex] !== 'start';
 
@@ -64,15 +66,58 @@ const App = () => {
   );
 
   const data = {
-    stateName,
-    age,
-    genericLivingSettings,
-    genericWorkSettings,
-    genericHealthConditions,
+    currentInput: inputsMap[inputIndex],
+    stateName: {
+      answered: !!stateName.value,
+      value: stateName,
+    },
+    age: {
+      answered: !!age,
+      value: Number(age),
+    },
+    genericLivingSettings: {
+      answered: !!genericLivingSettings.length,
+      values: genericLivingSettings,
+    },
+    genericWorkSettings: {
+      answered: !!genericWorkSettings.length,
+      values: genericWorkSettings,
+    },
+    genericHealthConditions: {
+      answered: !!genericHealthConditions.length,
+      values: genericHealthConditions,
+    },
     // specificLivingSettings,
     // specificWorkSettings,
     // specificHealthConditions,
   };
+
+  const currentQuestionAnswered = data[inputsMap[inputIndex]] && data[inputsMap[inputIndex]].answered;
+
+  const getEligibility = () => {
+    console.log();
+    const selectedStateData = stateData[stateName.value];
+    const selectedStatePhases = selectedStateData.phases;
+
+    const workPhases = data.genericWorkSettings.values.map(
+      ({ value }) => selectedStateData.workSettings.genericPhaseMap[value],
+    );
+    const livingPhases = data.genericLivingSettings.values.map(
+      ({ value }) => selectedStateData.livingSettings.genericPhaseMap[value],
+    );
+    const healthPhases = data.genericHealthConditions.values.map(
+      ({ value }) => selectedStateData.healthConditions.genericPhaseMap[value],
+    );
+    console.log({ workPhases, livingPhases, healthPhases });
+
+    const possiblePhases = Array.from(new Set([ ...workPhases, ...livingPhases, ...healthPhases ])).filter((p) => !!p);
+    possiblePhases.map((p) => {
+      const phase = selectedStatePhases[p];
+      return phase.startDate;
+    });
+  };
+
+  const isEligible = getEligibility();
 
   console.log(data);
 
@@ -90,7 +135,7 @@ const App = () => {
                 {inputsMap[inputIndex] === 'start' && (
                   <StartContent setInputIndex={setInputIndex} setInputDirection={setInputDirection} />
                 )}
-                {inputsMap[inputIndex] === 'state' && <StateInput stateName={stateName} setData={setStateName} />}
+                {inputsMap[inputIndex] === 'stateName' && <StateInput stateName={stateName} setData={setStateName} />}
                 {inputsMap[inputIndex] === 'age' && <AgeInput age={age} setData={setAge} />}
                 {inputsMap[inputIndex] === 'genericLivingSettings' && (
                   <GenericLivingSettingsInput
@@ -134,15 +179,14 @@ const App = () => {
                     setData={setSpecificHealthConditions}
                   />
                 )}
-                {inputsMap[inputIndex] === 'end' && (
-                  <EndContent setInputIndex={setInputIndex} setInputDirection={setInputDirection} />
-                )}
+                {inputsMap[inputIndex] === 'end' && <EndContent stateName={stateName} isEligible={isEligible} />}
               </main>
             </div>
           </CSSTransition>
         </SwitchTransition>
         {inputsMap[inputIndex] !== 'start' && (
           <ButtonsRow
+            currentQuestionAnswered={currentQuestionAnswered}
             inputIndex={inputIndex}
             inputsMap={inputsMap}
             setInputIndex={setInputIndex}

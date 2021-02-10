@@ -1,7 +1,7 @@
 import { h } from 'preact';
 import { Arrow, Row } from './atoms';
 
-const ButtonsRow = ({ inputIndex, inputsMap, setInputIndex, setInputDirection }) => {
+const ButtonsRow = ({ currentQuestionAnswered, inputIndex, inputsMap, setInputIndex, setInputDirection }) => {
   const nextIndex = () => {
     if (inputIndex < inputsMap.length - 1) {
       setInputIndex(inputIndex + 1);
@@ -16,7 +16,7 @@ const ButtonsRow = ({ inputIndex, inputsMap, setInputIndex, setInputDirection })
     }
   };
 
-  const onLastPage = inputIndex === inputsMap.length - 1;
+  const onLastPage = inputIndex === inputsMap.length - 2;
 
   return (
     <Row className='ButtonsRow'>
@@ -25,8 +25,12 @@ const ButtonsRow = ({ inputIndex, inputsMap, setInputIndex, setInputDirection })
           <Arrow color='dark' direction='left' /> Back
         </button>
       )}
-      {inputIndex <= inputsMap.length - 1 && (
-        <button className={`Next ${onLastPage ? 'Finish' : ''}`} onClick={nextIndex}>
+      {inputIndex < inputsMap.length - 1 && (
+        <button
+          className={`Next ${onLastPage ? 'Finish' : ''}`}
+          disabled={!currentQuestionAnswered}
+          onClick={nextIndex}
+        >
           {onLastPage ? 'Finish' : 'Next'} <Arrow />
         </button>
       )}

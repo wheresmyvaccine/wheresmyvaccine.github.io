@@ -2,12 +2,14 @@
 @import './_colors';
 @import './_milligram-overrides';
 @import './_page-transition';
+@import './AnswerRow';
 @import './Arrow';
 @import './ButtonsRow';
 @import './Header';
 @import './Logo';
 @import './Inputs';
-@import './StartContent.scss';
+@import './EndContent';
+@import './StartContent';
 
 body {
   padding: 0;

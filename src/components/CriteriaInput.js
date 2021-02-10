@@ -1,9 +1,11 @@
-import {h} from 'preact';
+import { h } from 'preact';
 import ReactSelect from 'react-select';
-import {stateData} from '../data';
+import { stateData } from '../data';
+import AnswerRow from './AnswerRow';
 
-const CriteriaInput = ({stateName, selectorType, data, setData}) => {
-  const {selectors, questions, questionDescriptions} = stateData[stateName.value];
+const CriteriaInput = ({ stateName, selectorType, singleSelect, data, setData }) => {
+  console.log({ CIdata: data });
+  const { selectors, questions, questionDescriptions } = stateData[stateName.value];
   const selectorData = selectors[selectorType];
   const setDataWrapper = (input) => setData(input);
 
@@ -15,16 +17,21 @@ const CriteriaInput = ({stateName, selectorType, data, setData}) => {
       <h1>{questions[selectorType]}</h1>
       <p>{questionDescriptions[selectorType]}</p>
 
-      <ReactSelect
-        className={`${selectorType}Select ReactSelect`}
-        classNamePrefix='select'
-        name={selectorType}
-        options={selectorData}
-        value={data}
-        isClearable={true}
-        isSearchable={true}
-        onChange={setDataWrapper}
-      />
+      {selectorData.map((answer) => (
+        <AnswerRow key={answer.value} answer={answer} singleSelect={singleSelect} data={data} setData={setData} />
+      ))}
+      {false && (
+        <ReactSelect
+          className={`${selectorType}Select ReactSelect`}
+          classNamePrefix='select'
+          name={selectorType}
+          options={selectorData}
+          value={data}
+          isClearable={true}
+          isSearchable={true}
+          onChange={setDataWrapper}
+        />
+      )}
     </div>
   );
 };

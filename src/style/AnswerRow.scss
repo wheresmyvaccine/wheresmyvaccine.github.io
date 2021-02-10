@@ -1,0 +1,17 @@
+.AnswerRow {
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  color: var(--textBlack);
+  cursor: pointer;
+
+  &.checked {
+    border-color: var(--textBlue);
+    background-color: var(--backgroundBlue);
+  }
+
+  [type="checkbox"] {
+    width: 2rem;
+    height: 2rem;
+  }
+}
