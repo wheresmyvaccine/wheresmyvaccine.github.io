@@ -7,7 +7,7 @@ export default {
 
     ],
     'genericPhaseMap': {
-
+      'Long term care facility': '1a',
     },
     'genericSpecificMap': {
 
@@ -19,7 +19,7 @@ export default {
 
   'workSettings': {
     'genericOptions': [
-
+      'Healthcare': '1a',
     ],
     'genericPhaseMap': {
 
@@ -48,7 +48,7 @@ export default {
   },
 
   'agePhaseMap': {
-
+    '65+': '1a',
   },
 
   'combinations': [
