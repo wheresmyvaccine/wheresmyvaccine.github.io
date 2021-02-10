@@ -7,7 +7,9 @@ export default {
 
     ],
     'genericPhaseMap': {
-
+      'Long term care facility': '1a',
+      'Other congregate care facility (i.e. treatment centers, psychiatric hospitals)': '1a',
+      'Group living facility (i.e. homeless shelter, migrant camp)': '1a',
     },
     'genericSpecificMap': {
 
@@ -22,7 +24,8 @@ export default {
 
     ],
     'genericPhaseMap': {
-
+      'Healthcare': '1a',
+      'Education or child care': '1b',
     },
     'genericSpecificMap': {
 
@@ -48,7 +51,7 @@ export default {
   },
 
   'agePhaseMap': {
-
+    '65+': '1a',
   },
 
   'combinations': [
