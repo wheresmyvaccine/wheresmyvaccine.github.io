@@ -7,6 +7,7 @@ export default {
 
     ],
     'genericPhaseMap': {
+      'Long term care facility': '1',
 
     },
     'genericSpecificMap': {
@@ -22,6 +23,9 @@ export default {
 
     ],
     'genericPhaseMap': {
+      'Healthcare': '1',
+      'Long term care facility': '1',
+      'Other frontline essential work (i.e. public transit, food services)': '3',
 
     },
     'genericSpecificMap': {
@@ -48,6 +52,7 @@ export default {
   },
 
   'agePhaseMap': {
+    '65+': '2',
 
   },
 
@@ -56,10 +61,19 @@ export default {
   ],
 
   'phases': {
-    '1a': {
+    '1': {
+      'startDate': '2021-02-01',
+    },
+    '2': {
+      'startDate': '2021-02-01',
+    },
+    '3': {
       'startDate': '',
     },
-    '1b': {
+    '4': {
+      'startDate': '',
+    },
+    '5': {
       'startDate': '',
     },
   },
