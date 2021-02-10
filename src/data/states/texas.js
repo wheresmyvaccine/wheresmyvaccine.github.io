@@ -57,7 +57,7 @@ export default {
   },
 
   'combinations': [
-    { 'age': '16+', 'healthConditions': '1+ chronic illness', 'phase': '1b' },
+    { 'age': '16+', 'healthConditions': 'Yes', 'phase': '1b' },
   ],
 
   'phases': {

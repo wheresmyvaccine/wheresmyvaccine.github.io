@@ -1,3 +1,8 @@
+// fix clearing/typing
+// remove 0 automatically / leave blank
+// save data in middle
+// remove border from start page
+
 import { h } from 'preact';
 import ReactSelect from 'react-select';
 import { stateNames } from '../data';

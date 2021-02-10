@@ -7,7 +7,7 @@ export default {
 
     ],
     'genericPhaseMap': {
-      'Long term care facility': '1a',
+      'Long term care facility': '1b',
     },
     'genericSpecificMap': {
 

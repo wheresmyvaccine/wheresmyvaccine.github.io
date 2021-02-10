@@ -15,7 +15,7 @@ import {
   SpecificHealthConditionsInput,
 } from './Inputs';
 import ButtonsRow from './ButtonsRow';
-import { stateData } from '../data';
+import getEligibility from '../utils/getEligibility';
 
 const inputsMap = [
   'start',
@@ -37,9 +37,9 @@ const App = () => {
   const [ inputDirection, setInputDirection ] = useState('next-exit-left-enter-right');
   const [ inputIndex, setInputIndex ] = useState(0);
 
-  const [ stateName, setStateName ] = useState({ label: 'Alabama (AL)', value: 'alabama' });
+  const [ stateName, setStateName ] = useState({ label: 'Texas (TX)', value: 'texas' });
   // const [ stateName, setStateName ] = useState({});
-  const [ age, setAge ] = useState(0);
+  const [ age, setAge ] = useState('');
   const [ genericLivingSettings, setGenericLivingSettings ] = useState([]);
   const [ genericWorkSettings, setGenericWorkSettings ] = useState([]);
   const [ genericHealthConditions, setGenericHealthConditions ] = useState([]);
@@ -65,6 +65,8 @@ const App = () => {
     [ inProgress ],
   );
 
+  // update this to be livingSettings.generic model
+  // rename to userData
   const data = {
     currentInput: inputsMap[inputIndex],
     stateName: {
@@ -73,7 +75,7 @@ const App = () => {
     },
     age: {
       answered: !!age,
-      value: Number(age),
+      value: isNaN(Number(age)) ? 0 : Number(age),
     },
     genericLivingSettings: {
       answered: !!genericLivingSettings.length,
@@ -94,30 +96,7 @@ const App = () => {
 
   const currentQuestionAnswered = data[inputsMap[inputIndex]] && data[inputsMap[inputIndex]].answered;
 
-  const getEligibility = () => {
-    console.log();
-    const selectedStateData = stateData[stateName.value];
-    const selectedStatePhases = selectedStateData.phases;
-
-    const workPhases = data.genericWorkSettings.values.map(
-      ({ value }) => selectedStateData.workSettings.genericPhaseMap[value],
-    );
-    const livingPhases = data.genericLivingSettings.values.map(
-      ({ value }) => selectedStateData.livingSettings.genericPhaseMap[value],
-    );
-    const healthPhases = data.genericHealthConditions.values.map(
-      ({ value }) => selectedStateData.healthConditions.genericPhaseMap[value],
-    );
-    console.log({ workPhases, livingPhases, healthPhases });
-
-    const possiblePhases = Array.from(new Set([ ...workPhases, ...livingPhases, ...healthPhases ])).filter((p) => !!p);
-    possiblePhases.map((p) => {
-      const phase = selectedStatePhases[p];
-      return phase.startDate;
-    });
-  };
-
-  const isEligible = getEligibility();
+  const isEligible = getEligibility({ stateName, userData: data });
 
   console.log(data);
 
