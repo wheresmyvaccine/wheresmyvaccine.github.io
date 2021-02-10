@@ -29,7 +29,8 @@ export default {
       'Education or child care': '1a',
       'Homeless shelter or other congregate living setting': '1a',
       'Manufacturing': '1a',
-      'Other frontline essential work (i.e. public transit, food services, judiciary)': '1a',
+      // add judiciary
+      'Other frontline essential work (i.e. public transit, food services)': '1a',
     },
     'genericSpecificMap': {
 
