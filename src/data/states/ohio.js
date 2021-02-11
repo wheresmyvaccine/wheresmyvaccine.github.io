@@ -40,6 +40,7 @@ export default {
 
     ],
     'genericPhaseMap': {
+      'Yes': '1a',
 
     },
     'genericSpecificMap': {
