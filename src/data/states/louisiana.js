@@ -22,6 +22,8 @@ export default {
 
     ],
     'genericPhaseMap': {
+      'Law enforcement or corrections': '1a',
+      'Emergency response or preparedness': '1a',
 
     },
     'genericSpecificMap': {
@@ -48,6 +50,7 @@ export default {
   },
 
   'agePhaseMap': {
+    '65+': '1a',
 
   },
 
@@ -57,7 +60,7 @@ export default {
 
   'phases': {
     '1a': {
-      'startDate': '',
+      'startDate': '2021-02-09',
     },
     '1b': {
       'startDate': '',
