@@ -37,9 +37,10 @@ export default {
 
   'healthConditions': {
     'genericOptions': [
-    'Yes': '1a',
+
     ],
     'genericPhaseMap': {
+      'Yes': '1a',
 
     },
     'genericSpecificMap': {
