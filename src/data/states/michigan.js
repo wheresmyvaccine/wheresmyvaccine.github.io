@@ -7,7 +7,7 @@ export default {
 
     ],
     'genericPhaseMap': {
-
+      'Long term care facility': '1a',
     },
     'genericSpecificMap': {
 
@@ -22,7 +22,13 @@ export default {
 
     ],
     'genericPhaseMap': {
-
+      'Healthcare': '1a',
+      'Law enforcement or corrections': '1a',
+      'Emergency response or preparedness': '1a',      
+      'Education or child care': '1a',
+      'Homeless shelter or other congregate living setting': '1a',
+      // add judiciary
+      'Other frontline essential work (i.e. public transit, food services)': '1a',
     },
     'genericSpecificMap': {
 
@@ -48,7 +54,7 @@ export default {
   },
 
   'agePhaseMap': {
-
+    '65+': '1a',
   },
 
   'combinations': [
@@ -57,7 +63,7 @@ export default {
 
   'phases': {
     '1a': {
-      'startDate': '',
+      'startDate': '2021-02-08',
     },
     '1b': {
       'startDate': '',
