@@ -52,7 +52,11 @@ export default {
   },
 
   'combinations': [
-
+    {
+      'age': '16-64',
+      'healthConditions': 'Yes',
+      'phase': '1a',
+    },
   ],
 
   'phases': {
