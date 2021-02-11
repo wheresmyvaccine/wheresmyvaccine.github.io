@@ -7,6 +7,7 @@ export default {
 
     ],
     'genericPhaseMap': {
+      'Long term care facility': '1a'
 
     },
     'genericSpecificMap': {
@@ -22,6 +23,7 @@ export default {
 
     ],
     'genericPhaseMap': {
+      'Healthcare': '1a'
 
     },
     'genericSpecificMap': {
@@ -37,6 +39,7 @@ export default {
 
     ],
     'genericPhaseMap': {
+      'Yes': '1a'
 
     },
     'genericSpecificMap': {
@@ -48,6 +51,7 @@ export default {
   },
 
   'agePhaseMap': {
+    '65+': '1a',
 
   },
 
@@ -57,7 +61,7 @@ export default {
 
   'phases': {
     '1a': {
-      'startDate': '',
+      'startDate': '2021-02-09',
     },
     '1b': {
       'startDate': '',
