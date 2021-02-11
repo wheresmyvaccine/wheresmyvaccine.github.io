@@ -7,6 +7,8 @@ export default {
 
     ],
     'genericPhaseMap': {
+      'Long term care facility': '1a',
+      'Other congregate care facility': '1a'
 
     },
     'genericSpecificMap': {
@@ -22,6 +24,10 @@ export default {
 
     ],
     'genericPhaseMap': {
+      'Healthcare': '1a',
+      'Long term care facility': '1a',
+      'Emergency response or preparedness': '1a',
+      'Education or child care': '1b-3'
 
     },
     'genericSpecificMap': {
@@ -37,6 +43,7 @@ export default {
 
     ],
     'genericPhaseMap': {
+      'Yes': '1b-2',
 
     },
     'genericSpecificMap': {
@@ -48,6 +55,7 @@ export default {
   },
 
   'agePhaseMap': {
+    '65+': '1b-2'
 
   },
 
@@ -57,9 +65,18 @@ export default {
 
   'phases': {
     '1a': {
+      'startDate': '2021-02-09',
+    },
+    '1b-1': {
       'startDate': '',
     },
-    '1b': {
+    '1b-2': {
+      'startDate': '',
+    },
+    '1b-3': {
+      'startDate': '',
+    },
+    '2': {
       'startDate': '',
     },
   },
