@@ -7,7 +7,7 @@ export default {
 
     ],
     'genericPhaseMap': {
-      'test': '1a'
+      'test': '1ab'
     },
     'genericSpecificMap': {
 
