@@ -1,12 +1,14 @@
 import { h } from 'preact';
 // import { Router } from 'preact-router';
-// import { createHashHistory } from 'history';
+import { createHashHistory } from 'history';
 
 // Code-splitting is automated for `routes` directory
 import StateInput from '~/components/StateInput';
 // import AgeInput from '~/components/AgeInput';
 
-// let history = createHashHistory();
+let history = createHashHistory();
+
+console.log(history);
 
 const App = () => (
   <div id='app'>
