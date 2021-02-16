@@ -15,7 +15,7 @@ import {
   SpecificHealthConditionsInput,
 } from './Inputs';
 import ButtonsRow from './ButtonsRow';
-import getEligibility from '../utils/getEligibility';
+import getEligibility from '~/utils/getEligibility';
 
 const inputsMap = [
   'start',
