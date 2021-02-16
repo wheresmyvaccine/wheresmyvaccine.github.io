@@ -15,7 +15,7 @@
   "main": "index.html",
   "scripts": {
     "start": "npm run dev",
-    "build": "preact build && cp ./CNAME build/ && cp -r resources/ build/resources/",
+    "build": "preact build --no-prerender && cp ./CNAME build/ && cp -r resources/ build/resources/",
     "serve": "bundle exec jekyll serve -s build",
     "dev": "preact watch",
     "lint": "eslint ./",
