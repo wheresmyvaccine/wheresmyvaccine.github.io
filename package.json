@@ -29,7 +29,7 @@
     ]
   },
   "dependencies": {
-    "history": "^5.0.0",
+    "history": "^4.10.1",
     "milligram": "^1.4.1",
     "preact": "^10.3.2",
     "preact-render-to-string": "^5.1.4",

@@ -6,7 +6,7 @@ import { createHashHistory } from 'history';
 import StateInput from '~/components/StateInput';
 import AgeInput from '~/components/AgeInput';
 
-// let history = createHashHistory();
+const history = createHashHistory();
 
 const App = () => (
   <div id='app'>
@@ -21,7 +21,7 @@ const App = () => (
         </li>
       </ul>
     </nav>
-    <Router history={createHashHistory()}>
+    <Router history={history}>
       <StateInput path='/state' />
       <AgeInput path='/age' />
     </Router>
